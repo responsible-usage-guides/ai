@@ -204,12 +204,7 @@ For an ongoing view, RedMonk maintains a policy landscape covering 86 organizati
 - **GeoServer** - Permits AI-assisted contributions with responsibility, understanding, and correctness requirements. Additional feasibility guidance on contributor overreach, and maintainability guidance to address complexity. AI policy extends to use for security vulnerability reports and community communication channels [28].
 - **Kubernetes** - AI use must be disclosed in PR descriptions, but AI must not be credited as a co-author, and trailers like `Assisted-by` are prohibited on the grounds that they dilute human accountability [29].
 - **Debian** - A General Resolution in August 2026 adopted "Responsible Use of Generative AI": AI is neither endorsed nor banned, contributors stay fully accountable and must review their output, and must not share confidential data with AI services. Large automated changes need prior discussion and human oversight. Disclosure is encouraged but not required [17].
-
-**Still navigating:**
-
-- **CPython** - No formal policy yet, though AI-co-authored commits are appearing. Python's centrality to the AI ecosystem makes its eventual stance significant [11].
-- **QGIS / GDAL** - Drafting transparency and accountability policies [14, 15].
-- **OpenDroneMap** - Still in active discussion with differing opinions within the community [16].
+- **CPython** - You are responsible for what you submit, AI or not, and must be able to explain it in your own words. Disclosure is welcome but not required. Changing or skipping tests to make them pass is not allowed. The project also gives instructions written for AI agents, telling them to read the policy first [62].
 
 **Restrictive approaches or bans:**
 
@@ -217,6 +212,9 @@ For an ongoing view, RedMonk maintains a policy landscape covering 86 organizati
 - **tldraw** - Auto-closes all external PRs. The founder discovered his own AI-generated issue scripts were producing slop that contributors then fed to their own AI tools - "AI slop all the way down" [10].
 - **NetBSD** - LLM-generated code is classified as "tainted" and requires prior written approval from core [11].
 - **Gentoo** - Banned AI-generated contributions entirely, citing copyright, quality, and environmental concerns [10].
+- **QGIS** - Voted in October 2026 to ban AI-assisted code in the main repository. If AI use is found later, the code is removed and the contributor may be sanctioned. This replaced an earlier "human in the loop" policy that did not work: most AI-assisted PRs were closed without merging, and the project lost a valued contributor. The ban is a starting point, with specific uses to be allowed back one at a time [14].
+- **GDAL** - AI may only be used for autocomplete or repetitive, mechanical edits. Humans must write the contribution, all AI use must be labelled, and AI agents may not submit anything. Long, wordy contributions are assumed to be AI-written and may be closed. The policy's reasoning: code is now cheap, but maintainer time is not [15].
+- **OpenDroneMap** - AI use is discouraged and PRs generated from prompts are not allowed. Small, careful use may be accepted if disclosed and discussed first [16].
 
 The common thread: human accountability, transparent AI use, respect for maintainer time, and protection of the commons. Notably, even projects that ban external AI contributions often use AI internally - the issue is not the tool itself but the absence of understanding, accountability, and genuine engagement behind the contribution.
 
@@ -303,9 +301,9 @@ This framework is intended as a starting point for consultation among NGOs, civi
 11. Nair, K. (2026). [AI usage in popular open source projects.](https://tirkarthi.github.io/programming/2026/02/13/ai-usage-open-source-projects.html)
 12. [Linux kernel mailing list AI Policy.](https://lore.kernel.org/ksummit/20251114183528.1239900-1-dave.hansen@linux.intel.com/)
 13. [cURL contribution policy: On AI use in curl.](https://curl.se/dev/contribute.html#on-ai-use-in-curl)
-14. [QGIS Enhancement Proposal. AI Tool Policy.](https://github.com/qgis/QGIS-Enhancement-Proposals/pull/363)
-15. [GDAL AI Tool Policy.](https://gdal--13880.org.readthedocs.build/en/13880/community/ai_tool_policy.html)
-16. [OpenDroneMap AI contribution policy discussion.](https://github.com/OpenDroneMap/documents/pull/4)
+14. [QGIS Enhancement Proposal 428: No AI contributions permitted.](https://github.com/qgis/QGIS-Enhancement-Proposals/pull/387)
+15. [GDAL LLM Tool Policy.](https://gdal.org/en/stable/community/ai_tool_policy.html)
+16. [OpenDroneMap: Contributing (Use of AI).](https://github.com/OpenDroneMap/documents/blob/main/CONTRIBUTING.md)
 17. [Debian General Resolution: LLM usage in Debian.](https://www.debian.org/vote/2026/vote_002)
 18. Hicks, C. [Cognitive helmets for the AI bicycle.](https://www.fightforthehuman.com/cognitive-helmets-for-the-ai-bicycle-part-1/)
 19. [Cloud Native PG AI Usage Policy](https://github.com/cloudnative-pg/governance/blob/main/AI_POLICY.md)
@@ -351,6 +349,7 @@ This framework is intended as a starting point for consultation among NGOs, civi
 59. Joseph Saveri Law Firm. [GitHub Copilot Litigation.](https://githubcopilotlitigation.com/)
 60. Holterhoff, K. (2026). [Generative AI Policy Landscape in Open Source.](https://redmonk.com/kholterhoff/2026/02/26/generative-ai-policy-landscape-in-open-source/) RedMonk.
 61. [Open Source AI Contribution Policies (community-maintained).](https://github.com/melissawm/open-source-ai-contribution-policies)
+62. Python Developer's Guide. [Guidelines for using AI tools.](https://devguide.python.org/getting-started/ai-tools/)
 
 [1]: https://x.com/karpathy/status/2019137879310836075 "Karpathy, A. (2025–2026). From 'vibe coding' to 'agentic engineering.'"
 [2]: https://www.nature.com/articles/s41598-025-34350-3 "Nature Scientific Reports (2026). Cybersecurity risks in AI-generated code."
@@ -365,9 +364,9 @@ This framework is intended as a starting point for consultation among NGOs, civi
 [11]: https://tirkarthi.github.io/programming/2026/02/13/ai-usage-open-source-projects.html "Nair, K. (2026). AI usage in popular open source projects."
 [12]: https://lore.kernel.org/ksummit/20251114183528.1239900-1-dave.hansen@linux.intel.com/ "Linux kernel mailing list AI Policy."
 [13]: https://curl.se/dev/contribute.html#on-ai-use-in-curl "cURL contribution policy: On AI use in curl."
-[14]: https://github.com/qgis/QGIS-Enhancement-Proposals/pull/363 "QGIS Enhancement Proposal. AI Tool Policy."
-[15]: https://gdal--13880.org.readthedocs.build/en/13880/community/ai_tool_policy.html "GDAL AI Tool Policy."
-[16]: https://github.com/OpenDroneMap/documents/pull/4 "OpenDroneMap AI contribution policy discussion."
+[14]: https://github.com/qgis/QGIS-Enhancement-Proposals/pull/387 "QGIS Enhancement Proposal 428: No AI contributions permitted."
+[15]: https://gdal.org/en/stable/community/ai_tool_policy.html "GDAL LLM Tool Policy."
+[16]: https://github.com/OpenDroneMap/documents/blob/main/CONTRIBUTING.md "OpenDroneMap: Contributing (Use of AI)."
 [17]: https://www.debian.org/vote/2026/vote_002 "Debian General Resolution: LLM usage in Debian."
 [18]: https://www.fightforthehuman.com/cognitive-helmets-for-the-ai-bicycle-part-1/ "Hicks, C. Cognitive helmets for the AI bicycle."
 [19]: https://github.com/cloudnative-pg/governance/blob/main/AI_POLICY.md "Cloud Native PG AI Usage Policy."
@@ -413,6 +412,7 @@ This framework is intended as a starting point for consultation among NGOs, civi
 [59]: https://githubcopilotlitigation.com/ "GitHub Copilot Litigation."
 [60]: https://redmonk.com/kholterhoff/2026/02/26/generative-ai-policy-landscape-in-open-source/ "Generative AI Policy Landscape in Open Source."
 [61]: https://github.com/melissawm/open-source-ai-contribution-policies "Open Source AI Contribution Policies."
+[62]: https://devguide.python.org/getting-started/ai-tools/ "Python Developer's Guide: Guidelines for using AI tools."
 
 ## Additional Sources
 
