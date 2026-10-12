@@ -203,13 +203,13 @@ For an ongoing view, RedMonk maintains a policy landscape covering 86 organizati
 - **Apache Spark** - Every PR must disclose AI use. Of ~8,500 commits over 2.5 years, only ~1.5% disclosed AI, but the rate is accelerating sharply [11].
 - **GeoServer** - Permits AI-assisted contributions with responsibility, understanding, and correctness requirements. Additional feasibility guidance on contributor overreach, and maintainability guidance to address complexity. AI policy extends to use for security vulnerability reports and community communication channels [28].
 - **Kubernetes** - AI use must be disclosed in PR descriptions, but AI must not be credited as a co-author, and trailers like `Assisted-by` are prohibited on the grounds that they dilute human accountability [29].
+- **Debian** - A General Resolution in August 2026 adopted "Responsible Use of Generative AI": AI is neither endorsed nor banned, contributors stay fully accountable and must review their output, and must not share confidential data with AI services. Large automated changes need prior discussion and human oversight. Disclosure is encouraged but not required [17].
 
 **Still navigating:**
 
 - **CPython** - No formal policy yet, though AI-co-authored commits are appearing. Python's centrality to the AI ecosystem makes its eventual stance significant [11].
 - **QGIS / GDAL** - Drafting transparency and accountability policies [14, 15].
 - **OpenDroneMap** - Still in active discussion with differing opinions within the community [16].
-- **Debian** - A General Resolution on LLM usage went to a vote in August 2026, with proposals ranging from a full ban written into the Social Contract to conditional acceptance [17].
 
 **Restrictive approaches or bans:**
 
