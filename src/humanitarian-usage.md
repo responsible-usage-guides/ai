@@ -104,3 +104,7 @@ The team called the risk **information overload**: lots of useful work, but no s
 The lesson isn't "do not build". It is: **find out what exists, talk to the people coordinating the response, and add to the shared picture rather than starting another one.**
 
 Build *with* the responders, not in parallel to them.
+
+## Further reading
+
+For practical checklists and prohibited uses, see the [Kenya Red Cross Society’s draft humanitarian AI framework](https://one.redcross.or.ke/review/humanitarian-ai-framework-review).
