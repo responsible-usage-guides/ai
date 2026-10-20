@@ -10,6 +10,8 @@ description: A living framework for NGOs, civil society organizations, and missi
 
 _Second draft - due to update Nov 2026_
 
+DOI: [10.5281/zenodo.23482925](https://doi.org/10.5281/zenodo.23482925)
+
 ---
 
 ## Collaborators
