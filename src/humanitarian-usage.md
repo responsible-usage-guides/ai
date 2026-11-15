@@ -53,8 +53,8 @@ Use LLM-assisted tooling with caution in an active response, ideally in consulta
 3. **Can I contribute to an existing effort instead?** Adding to an established platform is almost always higher impact than launching a competing one - especially one the users already trust.
 4. **Who answers the users?** Questions, corrections and retraining are usually a bigger commitment than the software. Each extra tool also costs responders time, working out which of a dozen sources is the most accurate and the most current.
 5. **Where does the data go?** If it does not flow into the official systems, in a format they can ingest, it will not reach the people making response decisions.
-6. **What is my duty of care?** You are collecting sensitive data about people at their most vulnerable. Consent, minimisation, retention and deletion are not optional because it is an emergency.
-7. **Who maintains this in six months?** A suitable handover plan should be in place, else the data migrated.
+6. **What is my duty of care?** You are collecting sensitive data about people at their most vulnerable. Consent, minimisation, retention and deletion are not optional because it is an emergency. People should know when AI influences decisions about them, and have a way to challenge those decisions.
+7. **Who maintains this in six months?** A suitable handover plan should be in place, else the data migrated. If the tool shuts down, tell users through the same channels you used to reach them, and explain what happens to their data.
 
 Answer those honestly and it may well be appropriate to build. If you do: publish openly, use recognised humanitarian data standards, make the data exportable, keep it light enough to open on a poor connection, say plainly what it does not cover, and offer it to the coordinating bodies rather than competing with them.
 
@@ -108,3 +108,5 @@ Build *with* the responders, not in parallel to them.
 ## Further reading
 
 For practical checklists and prohibited uses, see the [Kenya Red Cross Society’s draft humanitarian AI framework](https://one.redcross.or.ke/review/humanitarian-ai-framework-review).
+
+If your software uses AI to inform decisions about people, see SAFE AI from CDAC Network, The Alan Turing Institute and Humanitarian AI Advisory: the [Governance Framework](https://doi.org/10.5281/zenodo.22080937) and [Tools and Guidance](https://doi.org/10.5281/zenodo.22079930). It covers when not to use AI, and how much oversight is needed when errors could cause harm.
