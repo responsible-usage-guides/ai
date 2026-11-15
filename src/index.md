@@ -145,7 +145,7 @@ Connectivity and access are not automatically benefits. Scholars of digital colo
 
 ### 1.7 Economic and Financial Risk
 
-Depending on AI tools is also a financial bet. Proprietary LLM pricing is volatile, models are deprecated with little notice, and current prices are widely believed to be subsidised by investor capital. The Bank for International Settlements warns that an AI investment bust, opaque circular financing between AI firms, and record debt levels are interlocking risks to the wider financial system [48]. The externalities are already visible: AI datacenter demand has driven severe global memory price rises, with DRAM contract prices up around 60% in a single quarter of 2026 [49], raising hardware costs for organizations and communities that never touch an LLM.
+Depending on AI tools is also a financial bet. Proprietary LLM pricing is volatile, models are deprecated with little notice, and current prices are widely believed to be subsidised by investor capital. The Bank for International Settlements warns that an AI investment bust, opaque circular financing between AI firms, and record debt levels are interlocking risks to the wider financial system [48]. The externalities are already visible: AI datacenter demand has driven severe global memory price rises, with DRAM contract prices up around 60% in a single quarter of 2026 [49], raising hardware costs for organizations and communities that never touch an LLM. For humanitarian organizations, supplier dependence can also put neutrality at risk: a provider bought by a company linked to a party in a conflict may undermine community trust [63].
 
 **Mitigation approaches:**
 
@@ -352,6 +352,7 @@ This framework is intended as a starting point for consultation among NGOs, civi
 60. Holterhoff, K. (2026). [Generative AI Policy Landscape in Open Source.](https://redmonk.com/kholterhoff/2026/02/26/generative-ai-policy-landscape-in-open-source/) RedMonk.
 61. [Open Source AI Contribution Policies (community-maintained).](https://github.com/melissawm/open-source-ai-contribution-policies)
 62. Python Developer's Guide. [Guidelines for using AI tools.](https://devguide.python.org/getting-started/ai-tools/)
+63. McElhinney, H., Mazumder, A., Tjalve, M., Madigan, S. & Spencer, S. (2026). [SAFE AI: A Governance Framework for Humanitarians using AI (v1.2).](https://doi.org/10.5281/zenodo.22080937) CDAC Network. See also [SAFE AI Tools and Guidance (v1.2).](https://doi.org/10.5281/zenodo.22079930)
 
 [1]: https://x.com/karpathy/status/2019137879310836075 "Karpathy, A. (2025–2026). From 'vibe coding' to 'agentic engineering.'"
 [2]: https://www.nature.com/articles/s41598-025-34350-3 "Nature Scientific Reports (2026). Cybersecurity risks in AI-generated code."
@@ -415,6 +416,7 @@ This framework is intended as a starting point for consultation among NGOs, civi
 [60]: https://redmonk.com/kholterhoff/2026/02/26/generative-ai-policy-landscape-in-open-source/ "Generative AI Policy Landscape in Open Source."
 [61]: https://github.com/melissawm/open-source-ai-contribution-policies "Open Source AI Contribution Policies."
 [62]: https://devguide.python.org/getting-started/ai-tools/ "Python Developer's Guide: Guidelines for using AI tools."
+[63]: https://doi.org/10.5281/zenodo.22080937 "SAFE AI: A Governance Framework for Humanitarians using AI."
 
 ## Additional Sources
 
