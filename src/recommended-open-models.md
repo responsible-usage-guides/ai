@@ -47,10 +47,11 @@ Where to look for your number:
 
 **8 GB is enough to do real work.** That is the important number on this page. A 7B model compressed to Q4 is about 4.5 GB, so it fits on a modest laptop, an older graphics card, or a second-hand machine. You do not need expensive hardware to get out from under a subscription.
 
-Two bits of jargon you cannot avoid:
+Some bits of jargon you cannot avoid:
 
 - **7B, 27B, 32B** count the model's parameters in billions. Bigger means more capable and more memory.
-- **Quantization** is compression. Models are published at several sizes, labelled Q3, Q4, Q8 and so on. **Q4 is the standard choice** and roughly halves the memory needed for a small quality cost. LM Studio picks a sensible one for you.
+- **Quantization** is compression. Models are published at several sizes, labelled Q3, Q4, Q8 and so on. **Q4 is the standard choice** and roughly halves the memory needed for a small quality cost. LM Studio picks a sensible one for you. Some models also come as **QAT** (quantization-aware trained) files, trained to run at Q4, which lose noticeably less quality.
+- **Active parameters** apply to "mixture of experts" models, written like 26B-A4B. Only the active part (4B) does the work for each word, so it runs at the speed of a small model, but the whole 26B still has to fit in memory.
 
 ---
 
@@ -68,11 +69,13 @@ Very few capable models release all three. Calling an open-weight release open s
 
 Openness is a gradient rather than a yes/no. The [Model Openness Framework][model-openness-framework] grades it. The [OSI's Open Source AI Definition][osi-ai-definition] is another reference point, though its handling of training data is still contested.
 
+Running a model yourself reduces supplier dependence, but testing, monitoring and updates are still your responsibility ([SAFE AI][safe-ai-tools]).
+
 The same applies to the tooling further down this page. "Open" in a project's name is not a license.
 
 ---
 
-## Choosing a Model (August 2026)
+## Choosing a Model (October 2026)
 
 Smallest first, because the small ones are good now.
 
@@ -81,6 +84,7 @@ Smallest first, because the small ones are good now.
 | 4 GB | [SmolLM3-3B][smollm3] | Fully open | Old laptops, no graphics card, phones |
 | 8 GB | [OLMo 3.1 7B][olmo3-collection] | Fully open | **Start here.** Everyday use |
 | 8 GB | [Comma v0.1][comma-hf] | Fully open, openly licensed data | Proving a model can be trained ethically |
+| 8 GB | [Gemma 4 E4B (QAT)][gemma4-e4b-qat] | Open-weight | Running on a processor without a graphics card, e.g. a server |
 | 8-16 GB | [Qwen3.5-9B][qwen35-9b] | Open-weight | Coding on modest hardware |
 | 24 GB | [OLMo 3.1 32B][olmo3-collection] | Fully open | The most capable fully open option |
 | 24 GB | [Qwen3.6-27B][qwen36-27b] | Open-weight | Coding, data tasks, reading images |
@@ -93,7 +97,7 @@ What sits behind those picks:
 - **Fully open and tiny:** [SmolLM3-3B][smollm3] (Hugging Face, Apache 2.0) publishes its weights, data mixture, and training code. It runs on hardware nothing else here will touch, and handles summarising, drafting, and translation between its six languages.
 - **Proof it can be done ethically:** the [Comma models][comma-models] are trained only on openly licensed and public domain text. Capability is dated, but they prove a model with a known, untainted corpus is possible.
 - **Open-weight, the pragmatic middle:** Qwen, DeepSeek, and similar releases run locally, so you avoid lock-in and data exposure. Their training data is undisclosed, so the provenance concerns are the same as for proprietary models. [Qwen3.5-9B][qwen35-9b] is the practical choice if you want to write code on an 8 GB machine.
-- **Not open, but relevant:** [Tabnine][tabnine] publishes no training data, so its provenance claims cannot be audited. It does flag generated code matching public code on GitHub along with the source license, and offers IP indemnification and air-gapped deployment for enterprise customers.
+- **Small and efficient on servers:** [Gemma 4 E4B][gemma4-e4b-qat] (Google, Apache 2.0) uses about 4B parameters per word and comes as an official QAT Q4 file. In a [like-for-like test][gemma-qwen-low-end] one size down, Gemma's Q4 beat Qwen3.5's Q4 by 15-26 points on every task, while Qwen read prompts 25-50% faster. HOT runs E4B for its docs assistant on a shared 4 CPU / 16 GB server.
 
 Do not assume you need the biggest model you can fit. A 7B is quick and perfectly capable of summarising, drafting, translating, and answering questions. Step up only when the work genuinely needs reasoning. Published benchmarks say little about your own tasks, so try two on real work before settling.
 
@@ -128,6 +132,12 @@ The trade-off, worth knowing before you commit: the app itself is proprietary an
 
 **[llama.cpp][llama-cpp]** (MIT) is the engine nearly everything else is built on, LM Studio included. Give `llama-server` a model file and it serves an OpenAI-compatible API on port 8080 plus a built-in web chat page. No Python environment, no container. Running it directly avoids the overhead a wrapper adds to every request.
 
+On a server without a graphics card:
+
+- **Reading the prompt is the slow part,** not writing the answer. Keep prompts short. With E4B on 4 CPU cores, HOT measured about 25 tokens a second reading and 5 writing, so a long prompt takes most of a minute before the first word.
+- **Turn off "thinking"** (`--reasoning-budget 0`). Hidden reasoning adds tens of seconds before anything appears.
+- **Set threads to your CPU allowance** (`-t`), not the machine's core count. Oversubscribing made llama.cpp about 2.5x slower in our tests.
+
 ### Coding agents
 
 **[OpenCode][opencode]** points a terminal coding agent at any OpenAI-compatible endpoint, including a local `llama-server`. This is what makes a local model useful for real development rather than only for chat.
@@ -153,6 +163,7 @@ _A starting point. We will expand this page as we test more of these ourselves._
 [open-washing]: https://doi.org/10.1145/3630106.3659005
 [model-openness-framework]: https://arxiv.org/abs/2403.13784
 [osi-ai-definition]: https://opensource.org/ai/open-source-ai-definition
+[safe-ai-tools]: https://doi.org/10.5281/zenodo.22079930
 [smollm3]: https://huggingface.co/HuggingFaceTB/SmolLM3-3B
 [olmo3-collection]: https://huggingface.co/collections/allenai/olmo-3
 [comma-hf]: https://huggingface.co/common-pile
@@ -160,6 +171,8 @@ _A starting point. We will expand this page as we test more of these ourselves._
 [qwen36-27b]: https://huggingface.co/Qwen/Qwen3.6-27B
 [olmo3-blog]: https://allenai.org/blog/olmo3
 [comma-models]: https://github.com/r-three/common-pile
+[gemma4-e4b-qat]: https://huggingface.co/google/gemma-4-E4B-it-qat-q4_0-gguf
+[gemma-qwen-low-end]: https://dev.to/gde/comparing-qwen-and-gemma-on-the-low-end-qwen-is-faster-without-drafting-gemma-has-better-quality-30bo
 [tabnine]: https://www.tabnine.com/protection/
 [opencompass]: https://github.com/open-compass/opencompass
 [pd12m]: https://huggingface.co/datasets/Spawning/PD12M
